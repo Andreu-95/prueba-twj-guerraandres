@@ -8,7 +8,22 @@
 module.exports = {
 
   attributes: {
-
+    nombre: {
+      type: 'string',
+      required: true
+    },
+    tiempoElaboracion: {
+      type: 'integer',
+      required: true
+    },
+    urlFoto: {
+      type: 'string',
+      required: true
+    },
+    idPasteleria: {
+      model: 'Pasteleria',
+      required: true
+    }
   }
 };
 

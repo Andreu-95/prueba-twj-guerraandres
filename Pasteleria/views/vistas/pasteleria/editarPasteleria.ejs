@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Editar Pastelería - <%= pasteleriaAEditar.nombre %></h2>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <th>Nombre</th>
+            <th>Ciudad</th>
+            <th>Correo</th>
+          </tr>
+          <tr>
+            <td><%= pasteleriaAEditar.nombre %></td>
+            <td><%= pasteleriaAEditar.ciudad %></td>
+            <td><%= pasteleriaAEditar.correo %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <form action="/Pasteleria/EditarPasteleria" method="post" autocomplete="off">
+        <div class="form-group">
+          <label for="nombres">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre de su Pastelería"
+                 name="nombre">
+        </div>
+        <div class="form-group">
+          <label for="apellidos">Ciudad</label>
+          <input type="text" class="form-control" id="ciudad"
+                 placeholder="Ingrese la ciudad donde se encuentra su Pastelería" name="ciudad">
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo</label>
+          <input type="email" class="form-control" id="correo" placeholder="Ingrese el correo de su pastelería"
+                 name="correo">
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" id="idpasteleria" name="id" value="<%= pasteleriaAEditar.id %>">
+        </div>
+        <button type="submit" class="btn btn-success">Editar Pastelería</button>
+      </form>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>

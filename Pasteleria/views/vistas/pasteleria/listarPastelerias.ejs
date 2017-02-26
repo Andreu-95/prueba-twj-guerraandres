@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Lista de Pastelerías</h2>
+  <div class="row">
+    <div class="col-sm-9"></div>
+    <div class="col-sm-3">
+      <a href="/CrearPasteleria" class="btn btn-block btn-success">
+        Añadir Pasteleria
+      </a>
+    </div>
+  </div>
+  <br>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>Nombre</th>
+        <th>Ciudad</th>
+        <th>Correo</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+        <th>Pasteles</th>
+      </tr>
+      <% for (var i = 0; i < pastelerias.length; i++) { %>
+      <tr>
+        <td><%= pastelerias[i].nombre %></td>
+        <td><%= pastelerias[i].ciudad %></td>
+        <td><%= pastelerias[i].correo %></td>
+        <td>
+          <a href="/EditarPasteleria?id=<%= pastelerias[i].id %>" class="btn btn-info btn-block">Editar</a>
+        </td>
+        <td>
+          <a href="/Pasteleria/BorrarPasteleria?id=<%= pastelerias[i].id %>"
+             class="btn btn-danger btn-block">Eliminar</a>
+        </td>
+        <td>
+          <a href="/ListarProductos?idPasteleria=<%= pastelerias[i].id %>" class="btn btn-primary btn-block">Ver
+            Productos</a>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
+</div>

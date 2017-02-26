@@ -32,9 +32,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  'get /': 'RutasController.Home',
+  'get /CrearPasteleria': 'RutasController.CrearPasteleria',
+  'get /ListarPastelerias': 'RutasController.ListarPastelerias',
+  'get /EditarPasteleria': 'RutasController.EditarPasteleria'
 
   /***************************************************************************
   *                                                                          *
