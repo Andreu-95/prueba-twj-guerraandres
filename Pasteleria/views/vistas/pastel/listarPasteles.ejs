@@ -29,14 +29,14 @@
         <td><%= pasteleria.pasteles[i].nombre %></td>
         <td><%= pasteleria.pasteles[i].tiempoElaboracion %></td>
         <td>
-          <img src="<%= pasteleria.pasteles[i].urlFoto %>" alt="<%= pasteleria.pasteles[i].nombre %>" width="200">
+          <img src="<%= pasteleria.pasteles[i].urlFoto %>" alt="<%= pasteleria.pasteles[i].nombre %>" width="150" height="100">
         </td>
         <td>
           <a href="/EditarPastel?id=<%= pasteleria.pasteles[i].id %>&idPasteleria=<%= pasteleria.id %>"
              class="btn btn-info btn-block">Editar</a>
         </td>
         <td>
-          <a href="/Pasteleria/BorrarPastel?id=<%= pasteleria.pasteles[i].id %>"
+          <a href="/Pastel/BorrarPastel?id=<%= pasteleria.pasteles[i].id %>&idPasteleria=<%= pasteleria.id %>"
              class="btn btn-danger btn-block">Eliminar</a>
         </td>
       </tr>

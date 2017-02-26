@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Editar Pastel - <%= pastelAEditar.nombre %></h2>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <th>Nombre</th>
+            <th>Tiempo Establecido</th>
+            <th>Foto</th>
+          </tr>
+          <tr>
+            <td><%= pastelAEditar.nombre %></td>
+            <td><%= pastelAEditar.tiempoElaboracion %></td>
+            <td>
+              <img src="<%= pastelAEditar.urlFoto %>" alt="<%= pastelAEditar.nombre %>" width="150" height="100">
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <form action="/Pastel/EditarPastel" method="post" autocomplete="off">
+        <div class="form-group">
+          <label for="nombres">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del Pastel"
+                 name="nombre">
+        </div>
+        <div class="form-group">
+          <label for="apellidos">Tiempo Elaboración (Minutos)</label>
+          <input type="number" class="form-control" id="tiempoElaboracion"
+                 min="10" step="10" name="tiempoElaboracion" onkeypress="return false;">
+        </div>
+        <div class="form-group">
+          <label for="correo">Foto (URL)</label>
+          <input type="text" class="form-control" id="urlFoto" placeholder="Ingrese la url de la foto del pastel"
+                 name="urlFoto">
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" id="idpastel" name="id" value="<%= pastelAEditar.id %>">
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" id="idPasteleria" name="idPasteleria"
+                 value="<%= pastelAEditar.idPasteleria %>">
+        </div>
+        <button type="submit" class="btn btn-success">Editar Pastel</button>
+      </form>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>

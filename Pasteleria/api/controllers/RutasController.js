@@ -120,7 +120,7 @@ module.exports = {
 
         if (pastelEncontrado) {
           return res.view('vistas/pastel/editarPastel', {
-            pasteleriaAEditar: pastelEncontrado
+            pastelAEditar: pastelEncontrado
           });
         } else {
           return res.view('vistas/error', {
