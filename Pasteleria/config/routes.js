@@ -35,7 +35,10 @@ module.exports.routes = {
   'get /': 'RutasController.Home',
   'get /CrearPasteleria': 'RutasController.CrearPasteleria',
   'get /ListarPastelerias': 'RutasController.ListarPastelerias',
-  'get /EditarPasteleria': 'RutasController.EditarPasteleria'
+  'get /EditarPasteleria': 'RutasController.EditarPasteleria',
+  'get /CrearPastel': 'RutasController.CrearPastel',
+  'get /ListarPasteles': 'RutasController.ListarPasteles',
+  'get /EditarPastel': 'RutasController.EditarPastel'
 
   /***************************************************************************
   *                                                                          *

@@ -33,7 +33,7 @@ module.exports = {
   },
 
   EditarPasteleria: function (req, res) {
-    var parametros = req.allParams(0);
+    var parametros = req.allParams();
     if (parametros.id) {
       Pasteleria.findOne({
         id: parametros.id
@@ -68,6 +68,76 @@ module.exports = {
           descripcion: "No ha enviado el parámetro ID",
           rawError: "Faltan Parámetros",
           url: "/ListarPastelerias"
+        }
+      });
+    }
+  },
+
+  CrearPastel: function (req, res) {
+    var parametros = req.allParams();
+    return res.view('vistas/pastel/crearPastel', {
+      pasteleria: parametros
+    });
+  },
+
+  ListarPasteles: function (req, res) {
+    var parametros = req.allParams();
+
+    Pasteleria.findOne({
+      id: parametros.id
+    }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
+      if (err) {
+        return res.view('vistas/error', {
+          error: {
+            descripcion: "Hubo un problema cargando los pasteles",
+            rawError: err,
+            url: "/ListarPasteles?id="+ parametros.id
+          }
+        });
+      } else {
+        return res.view('vistas/pastel/listarPasteles', {
+          pasteleria: pasteleriaEncontrada
+        });
+      }
+    });
+  },
+
+  EditarPastel: function (req, res) {
+    var parametros = req.allParams();
+    if (parametros.id) {
+      Pastel.findOne({
+        id: parametros.id
+      }).exec(function (err, pastelEncontrado) {
+        if (err) {
+          return res.view('vistas/error', {
+            error: {
+              descripcion: "Error Inesperado",
+              rawError: err,
+              url: "/ListarPasteles?id="+ parametros.idPasteleria
+            }
+          });
+        }
+
+        if (pastelEncontrado) {
+          return res.view('vistas/pastel/editarPastel', {
+            pasteleriaAEditar: pastelEncontrado
+          });
+        } else {
+          return res.view('vistas/error', {
+            error: {
+              descripcion: "No se encontró el pastel con el id: " + parametros.id,
+              rawError: "Pastel No Encontrado",
+              url: "/ListarPasteles?id="+ parametros.idPasteleria
+            }
+          });
+        }
+      });
+    } else {
+      return res.view('vistas/error', {
+        error: {
+          descripcion: "No ha enviado el parámetro ID",
+          rawError: "Faltan Parámetros",
+          url: "/ListarPasteles?id="+ parametros.idPasteleria
         }
       });
     }

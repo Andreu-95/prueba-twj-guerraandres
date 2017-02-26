@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Lista de Pasteles - <%= pasteleria.nombre %></h2>
+  <div class="row">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-3">
+      <a href="/CrearPastel?id=<%= pasteleria.id %>&nombre=<%= pasteleria.nombre %>"
+         class="btn btn-block btn-success">
+        Añadir Pastel
+      </a>
+    </div>
+    <div class="col-sm-3">
+      <a href="/ListarPastelerias" class="btn btn-block btn-info">
+        Regresar a Pastelerías
+      </a>
+    </div>
+  </div>
+  <br>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>Nombre</th>
+        <th>Tiempo Elaboración (Minutos)</th>
+        <th>Foto</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+      <% for (var i = 0; i < pasteleria.pasteles.length; i++) { %>
+      <tr>
+        <td><%= pasteleria.pasteles[i].nombre %></td>
+        <td><%= pasteleria.pasteles[i].tiempoElaboracion %></td>
+        <td>
+          <img src="<%= pasteleria.pasteles[i].urlFoto %>" alt="<%= pasteleria.pasteles[i].nombre %>" width="200">
+        </td>
+        <td>
+          <a href="/EditarPastel?id=<%= pasteleria.pasteles[i].id %>&idPasteleria=<%= pasteleria.id %>"
+             class="btn btn-info btn-block">Editar</a>
+        </td>
+        <td>
+          <a href="/Pasteleria/BorrarPastel?id=<%= pasteleria.pasteles[i].id %>"
+             class="btn btn-danger btn-block">Eliminar</a>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
+</div>

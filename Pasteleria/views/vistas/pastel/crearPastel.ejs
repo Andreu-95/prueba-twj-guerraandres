@@ -1,0 +1,30 @@
+<div class="container">
+  <h2><%= pasteleria.nombre %> - Añadir Pastel</h2>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <form action="/Pastel/CrearPastel" method="post" autocomplete="off">
+        <div class="form-group">
+          <label for="nombres">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del Pastel"
+                 name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="apellidos">Tiempo Elaboración (Minutos)</label>
+          <input type="number" class="form-control" id="tiempoElaboracion"
+                 min="10" step="10" name="tiempoElaboracion" onkeypress="return false;" required>
+        </div>
+        <div class="form-group">
+          <label for="correo">Foto (URL)</label>
+          <input type="text" class="form-control" id="urlFoto" placeholder="Ingrese la url de la foto del pastel"
+                 name="urlFoto" required>
+        </div>
+        <div class="form-group">
+          <input type="hidden" class="form-control" id="idPasteleria" name="idPasteleria" value="<%= pasteleria.id %>">
+        </div>
+        <button type="submit" class="btn btn-success">Añadir Pastel</button>
+      </form>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>
