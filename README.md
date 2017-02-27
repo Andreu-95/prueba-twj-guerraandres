@@ -4,4 +4,4 @@
 ### Fecha: `2017-02-26`
 ### Estudiante: `Andrés David Guerra Vásconez`
 ### Profesor: `Adrián Eguez`
-### Número de Ejercico: `3 - Pastelería y Pasteles`
+### Número de Ejercicio: `3 - Pastelería y Pasteles`
