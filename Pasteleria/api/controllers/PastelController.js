@@ -21,23 +21,33 @@ module.exports = {
           });
         }
 
-        Pasteleria.findOne({
-          id: parametros.idPasteleria
-        }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
-          if (err) {
-            return res.view('vistas/error', {
-              error: {
-                descripcion: "Hubo un problema cargando los pasteles",
-                rawError: err,
-                url: "/ListarPasteles?id=" + parametros.idPasteleria
-              }
-            });
-          } else {
-            return res.view('vistas/pastel/listarPasteles', {
-              pasteleria: pasteleriaEncontrada
-            });
-          }
-        });
+        if (parametros.idPasteleria) {
+          Pasteleria.findOne({
+            id: parametros.idPasteleria
+          }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
+            if (err) {
+              return res.view('vistas/error', {
+                error: {
+                  descripcion: "Hubo un problema cargando los pasteles",
+                  rawError: err,
+                  url: "/ListarPasteles?id=" + parametros.idPasteleria
+                }
+              });
+            } else {
+              return res.view('vistas/pastel/listarPasteles', {
+                pasteleria: pasteleriaEncontrada
+              });
+            }
+          });
+        } else {
+          return res.view('vistas/error', {
+            error: {
+              descripcion: "No ha enviado el parámetro ID",
+              rawError: "Faltan Parámetros",
+              url: "/ListarPastelerias"
+            }
+          });
+        }
       });
     } else {
       return res.view('vistas/error', {
@@ -67,23 +77,33 @@ module.exports = {
           });
         }
 
-        Pasteleria.findOne({
-          id: parametros.idPasteleria
-        }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
-          if (err) {
-            return res.view('vistas/error', {
-              error: {
-                descripcion: "Hubo un problema cargando los pasteles",
-                rawError: err,
-                url: "/ListarPasteles?id=" + parametros.idPasteleria
-              }
-            });
-          } else {
-            return res.view('vistas/pastel/listarPasteles', {
-              pasteleria: pasteleriaEncontrada
-            });
-          }
-        });
+        if (parametros.idPasteleria) {
+          Pasteleria.findOne({
+            id: parametros.idPasteleria
+          }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
+            if (err) {
+              return res.view('vistas/error', {
+                error: {
+                  descripcion: "Hubo un problema cargando los pasteles",
+                  rawError: err,
+                  url: "/ListarPasteles?id=" + parametros.idPasteleria
+                }
+              });
+            } else {
+              return res.view('vistas/pastel/listarPasteles', {
+                pasteleria: pasteleriaEncontrada
+              });
+            }
+          });
+        } else {
+          return res.view('vistas/error', {
+            error: {
+              descripcion: "No ha enviado el parámetro ID",
+              rawError: "Faltan Parámetros",
+              url: "/ListarPastelerias"
+            }
+          });
+        }
       });
     } else {
       return res.view('vistas/error', {
@@ -132,23 +152,33 @@ module.exports = {
           });
         }
 
-        Pasteleria.findOne({
-          id: parametros.idPasteleria
-        }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
-          if (err) {
-            return res.view('vistas/error', {
-              error: {
-                descripcion: "Hubo un problema cargando los pasteles",
-                rawError: err,
-                url: "/ListarPasteles?id=" + parametros.idPasteleria
-              }
-            });
-          } else {
-            return res.view('vistas/pastel/listarPasteles', {
-              pasteleria: pasteleriaEncontrada
-            });
-          }
-        });
+        if (parametros.idPasteleria) {
+          Pasteleria.findOne({
+            id: parametros.idPasteleria
+          }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
+            if (err) {
+              return res.view('vistas/error', {
+                error: {
+                  descripcion: "Hubo un problema cargando los pasteles",
+                  rawError: err,
+                  url: "/ListarPasteles?id=" + parametros.idPasteleria
+                }
+              });
+            } else {
+              return res.view('vistas/pastel/listarPasteles', {
+                pasteleria: pasteleriaEncontrada
+              });
+            }
+          });
+        } else {
+          return res.view('vistas/error', {
+            error: {
+              descripcion: "No ha enviado el parámetro ID",
+              rawError: "Faltan Parámetros",
+              url: "/ListarPastelerias"
+            }
+          });
+        }
       });
     } else {
       return res.view('vistas/error', {

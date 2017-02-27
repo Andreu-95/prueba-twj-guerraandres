@@ -83,23 +83,33 @@ module.exports = {
   ListarPasteles: function (req, res) {
     var parametros = req.allParams();
 
-    Pasteleria.findOne({
-      id: parametros.id
-    }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
-      if (err) {
-        return res.view('vistas/error', {
-          error: {
-            descripcion: "Hubo un problema cargando los pasteles",
-            rawError: err,
-            url: "/ListarPasteles?id="+ parametros.id
-          }
-        });
-      } else {
-        return res.view('vistas/pastel/listarPasteles', {
-          pasteleria: pasteleriaEncontrada
-        });
-      }
-    });
+    if (parametros.id) {
+      Pasteleria.findOne({
+        id: parametros.id
+      }).populate('pasteles').exec(function (err, pasteleriaEncontrada) {
+        if (err) {
+          return res.view('vistas/error', {
+            error: {
+              descripcion: "Hubo un problema cargando los pasteles",
+              rawError: err,
+              url: "/ListarPasteles?id=" + parametros.id
+            }
+          });
+        } else {
+          return res.view('vistas/pastel/listarPasteles', {
+            pasteleria: pasteleriaEncontrada
+          });
+        }
+      });
+    } else {
+      return res.view('vistas/error', {
+        error: {
+          descripcion: "No ha enviado el parámetro ID",
+          rawError: "Faltan Parámetros",
+          url: "/ListarPastelerias"
+        }
+      });
+    }
   },
 
   EditarPastel: function (req, res) {
@@ -113,7 +123,7 @@ module.exports = {
             error: {
               descripcion: "Error Inesperado",
               rawError: err,
-              url: "/ListarPasteles?id="+ parametros.idPasteleria
+              url: "/ListarPasteles?id=" + parametros.idPasteleria
             }
           });
         }
@@ -127,7 +137,7 @@ module.exports = {
             error: {
               descripcion: "No se encontró el pastel con el id: " + parametros.id,
               rawError: "Pastel No Encontrado",
-              url: "/ListarPasteles?id="+ parametros.idPasteleria
+              url: "/ListarPasteles?id=" + parametros.idPasteleria
             }
           });
         }
@@ -137,7 +147,7 @@ module.exports = {
         error: {
           descripcion: "No ha enviado el parámetro ID",
           rawError: "Faltan Parámetros",
-          url: "/ListarPasteles?id="+ parametros.idPasteleria
+          url: "/ListarPasteles?id=" + parametros.idPasteleria
         }
       });
     }
