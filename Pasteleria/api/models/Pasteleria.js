@@ -25,6 +25,12 @@ module.exports = {
       collection: 'Pastel',
       via: 'idPasteleria'
     }
+  },
+
+  afterDestroy: function (destroyedRecords, cb) {
+    Pastel.destroy({
+      idPasteleria: _.pluck(destroyedRecords, 'id')
+    }).exec(cb)
   }
 };
 
